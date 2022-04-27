@@ -18,14 +18,16 @@ Route::get('/', function () {
     return 'Olá, seja bem-vindo';
 });
 
-Route::get('/sobre-nos', function () {
-    return 'Sobre nós';
-});
-
-# Route::get($uri, $callback)
-Route::get('/contato', function () {
-    return 'Contato';
-});
+# Definindo parametros para rotas. O que importa é a sequencia dos parametros:
+Route::get(
+    '/contato/{nome}/{categoria_id}',
+    function (
+        string $nome = 'Desconhecido',
+        int $categoria_id = 1
+    ) {
+        echo "Estamos aqui $nome, $categoria_id";
+    }
+)->where('nome', '[A-Za-z ]+')->where('categoria_id', '[0-9]+');  # Regex
 */
 
 Route::get('/', 'PrincipalController@principal');
@@ -34,10 +36,18 @@ Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 
 Route::get('/contato', 'ContatoController@contato');
 
-# Definindo parametros para rotas. O que importa é a sequencia dos parametros:
-Route::get(
-    '/contato/{nome}/{categoria}/{assunto}/{mensagem}',
-    function (string $nome, string $categoria, string $assunto, string $mensagem) {
-        printf("Estamos aqui: %s - %s - %s - %s", $nome, $categoria, $assunto, $mensagem);
-    }
-);
+Route::get('/login', function () {
+    return 'Login';
+});
+
+Route::get('/clientes', function () {
+    return 'Clientes';
+});
+
+Route::get('/fornecedores', function () {
+    return 'Fornecedores';
+});
+
+Route::get('/produtos', function () {
+    return 'Produtos';
+});
