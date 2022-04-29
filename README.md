@@ -1,1 +1,1 @@
-Laravel e Vue.JS
+Laravel - Parte 1
