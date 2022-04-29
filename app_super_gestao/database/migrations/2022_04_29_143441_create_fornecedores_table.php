@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFornecedoresTable extends Migration  # phpcs:ignore
+class CreateFornecedoresTable extends Migration  // phpcs:ignore
 {
     /**
      * Run the migrations.
@@ -28,5 +28,6 @@ class CreateFornecedoresTable extends Migration  # phpcs:ignore
     public function down()
     {
         Schema::dropIfExists('fornecedores');
+        // Schema::drop('fornecedores');
     }
 }
