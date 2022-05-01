@@ -2,5 +2,7 @@
 <ruleset name="Custom Standard">
     <rule ref="PSR12">
         <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>  <!-- Permite criar classes sem namespace -->
+        <exclude name="Generic.Files.LineEndings.InvalidEOLChar"/>
+        <exclude name="Generic.Files.LineLength.TooLong"/>
     </rule>
 </ruleset>
