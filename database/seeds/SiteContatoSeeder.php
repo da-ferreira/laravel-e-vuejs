@@ -12,6 +12,7 @@ class SiteContatoSeeder extends Seeder
      */
     public function run()
     {
+        /*
         SiteContato::create([
             'nome' => 'Sistema SG',
             'telefone' => '(11) 90000-0000',
@@ -19,5 +20,9 @@ class SiteContatoSeeder extends Seeder
             'motivo_contato' => 1,
             'mensagem' => 'Seja bem-vindo ao sistema Super Gestão'
         ])->save();
+        */
+
+        # Criando 100 registros no BD
+        factory(SiteContato::class, 100)->create();
     }
 }
