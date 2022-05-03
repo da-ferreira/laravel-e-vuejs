@@ -18,3 +18,7 @@
     <br>
     <button type="submit" class="{{ $classe_borda_form }}">ENVIAR</button>
 </form>
+
+<pre>
+{{ print_r($errors) }}
+</pre>
