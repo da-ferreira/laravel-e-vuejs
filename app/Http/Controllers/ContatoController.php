@@ -9,30 +9,8 @@ class ContatoController extends Controller
 {
     public function contato(Request $request)
     {
-        /*
-        # 1º forma de enviar:
-
-        $contato = new SiteContato();
-
-        $contato->nome = $request->input('nome');
-        $contato->telefone = $request->input('telefone');
-        $contato->email = $request->input('email');
-        $contato->motivo_contato = $request->input('motivo_contato');
-        $contato->mensagem = $request->input('mensagem');
-
-        $contato->save();
-
-        # 2º forma de enviar:
-
-        $contato = new SiteContato();
-        $contato->fill($request->all());
-        $contato->save();
-
-        # 3º forma de enviar:
-        # SiteContato::create($request->all());
-        */
-
-        return view('site.contato');
+        $motivo_contatos = ['1' => 'Dúvida', '2' => 'Elogio', '3' => 'Reclamação'];
+        return view('site.contato', ['motivo_contatos' => $motivo_contatos]);  # Enviando para a view
     }
 
     public function salvar(Request $request)

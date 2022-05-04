@@ -14,7 +14,7 @@
         <div class="informacao-pagina">
             <div class="contato-principal">
                 {{-- Adicionando o componente aqui (view/site/layouts/_components/form_contato.blade.php) --}}
-                @component('site.layouts._components.form_contato', ['classe_borda_form' => 'borda-preta'])
+                @component('site.layouts._components.form_contato', ['classe_borda_form' => 'borda-preta', 'motivo_contatos' => $motivo_contatos])
                 @endcomponent
             </div>
         </div>
