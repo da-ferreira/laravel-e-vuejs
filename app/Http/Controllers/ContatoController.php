@@ -8,7 +8,7 @@ use App\MotivoContato;
 
 class ContatoController extends Controller
 {
-    public function contato(Request $request)
+    public function contato()
     {
         $motivo_contatos = MotivoContato::all();
         return view('site.contato', ['motivo_contatos' => $motivo_contatos]);  # Enviando para a view
@@ -19,11 +19,11 @@ class ContatoController extends Controller
         $request->validate([
             'nome' => 'required|min:3|max:40',
             'telefone' => 'required',
-            'email' => 'required',
+            'email' => 'email',
             'motivo_contato' => 'required',
             'mensagem' => 'required|max:2000',
         ]);
 
-        SiteContato::create($request->all());
+        // SiteContato::create($request->all());
     }
 }
