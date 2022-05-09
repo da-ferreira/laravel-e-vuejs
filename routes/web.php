@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\LogAcessoMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +13,10 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-/* Adicionando um middleware a uma rota: quando a rota GET for acionada,
-   essa requisição vai ser interceptada pelo middleware. */
-Route::middleware(LogAcessoMiddleware::class)
-    ->get('/', 'PrincipalController@principal')
-    ->name('site.index');
-
+Route::get('/', 'PrincipalController@principal')->name('site.index');
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
 
-Route::get('/contato', 'ContatoController@contato')
-    ->name('site.contato')
-    ->middleware(LogAcessoMiddleware::class);
-
+Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
 
 Route::get('/login', function () {
