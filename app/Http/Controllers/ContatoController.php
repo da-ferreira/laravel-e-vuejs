@@ -44,6 +44,15 @@ class ContatoController extends Controller
 
         $request->validate($regras, $feedbacks);
 
+        /*
+        Aplicando regex para tirar caracteres que vem da mascara
+
+        $dados = $request->all();
+        $dados['telefone'] = preg_replace('/[-() ]/', '', $dados['telefone']);
+
+        SiteContato::create($dados);
+        */
+
         SiteContato::create($request->all());
         return redirect()->route('site.index');
     }
