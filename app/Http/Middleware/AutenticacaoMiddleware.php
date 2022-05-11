@@ -13,8 +13,9 @@ class AutenticacaoMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, string $metodo_autenticacao, string $perfil)
     {
+        echo "$metodo_autenticacao | $perfil <br>";
         // Verifica se o usuário possui acesso a rota
         if (true) {
             return $next($request);  // Está mandando a requisição pro Controller
