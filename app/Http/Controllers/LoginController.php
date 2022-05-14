@@ -7,9 +7,15 @@ use App\User;
 
 class LoginController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('site.login');
+        $erro = '';
+
+        if ($request->get('erro') == 1) {
+            $erro = 'Usuário e ou senha não existe';
+        }
+
+        return view('site.login', ['erro' => $erro]);
     }
 
     public function autenticar(Request $request)
@@ -39,6 +45,7 @@ class LoginController extends Controller
                        ->get()
                        ->first();
 
-        echo isset($usuario->name) ? 'Usuário existe' : 'Usuário não existe';
+        // Passando parametro para a rota utilizando o redirect
+        return isset($usuario->name) ? 'Usuário existe' : redirect()->route('site.login', ['erro' => 1]);
     }
 }
