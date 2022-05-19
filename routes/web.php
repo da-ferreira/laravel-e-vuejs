@@ -35,7 +35,20 @@ Route::middleware('autenticacao:padrao, visitante')->prefix('/app')->group(funct
     Route::get('/fornecedor/editar/{id}/{mensagem?}', 'FornecedorController@editar')->name('app.fornecedor.editar');
     Route::get('/fornecedor/excluir/{id}', 'FornecedorController@excluir')->name('app.fornecedor.excluir');
 
-    Route::get('/produto', 'ProdutoController@index')->name('app.produto');
+    /*
+        Rotas para produtos criada pelo resource:
+
+        | Method    | URI                        | Name            | Action
+        +-----------+----------------------------+-----------------+-----------------------------------------------
+        | GET|HEAD  | app/produto                | produto.index   | App\Http\Controllers\ProdutoController@index
+        | POST      | app/produto                | produto.store   | App\Http\Controllers\ProdutoController@store
+        | GET|HEAD  | app/produto/create         | produto.create  | App\Http\Controllers\ProdutoController@create
+        | GET|HEAD  | app/produto/{produto}      | produto.show    | App\Http\Controllers\ProdutoController@show
+        | PUT|PATCH | app/produto/{produto}      | produto.update  | App\Http\Controllers\ProdutoController@update
+        | DELETE    | app/produto/{produto}      | produto.destroy | App\Http\Controllers\ProdutoController@destroy
+        | GET|HEAD  | app/produto/{produto}/edit | produto.edit    | App\Http\Controllers\ProdutoController@edit
+    */
+    Route::resource('produto', 'ProdutoController');
 });
 
 // Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
