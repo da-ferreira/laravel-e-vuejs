@@ -1,6 +1,6 @@
 
 @if (isset($produto_detalhe->id))
-    <form method="POST" action="{{ route('produto.update', ['produto' => $produto_detalhe->id]) }}">
+    <form method="POST" action="{{ route('produto-detalhe.update', ['produto_detalhe' => $produto_detalhe->id]) }}">
         @method('PUT')
 @else
     <form method="POST" action="{{ route('produto-detalhe.store') }}">
