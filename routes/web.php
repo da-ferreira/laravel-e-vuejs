@@ -49,6 +49,7 @@ Route::middleware('autenticacao:padrao, visitante')->prefix('/app')->group(funct
         | GET|HEAD  | app/produto/{produto}/edit | produto.edit    | App\Http\Controllers\ProdutoController@edit
     */
     Route::resource('produto', 'ProdutoController');
+    Route::resource('produto-detalhe', 'ProdutoDetalheController');
 });
 
 // Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
